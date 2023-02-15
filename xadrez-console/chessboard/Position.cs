@@ -1,4 +1,4 @@
-﻿namespace chessboard;
+﻿namespace chessboard
 {
     class Position
     {
