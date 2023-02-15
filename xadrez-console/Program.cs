@@ -8,7 +8,10 @@ namespace xadrez_console
         static void Main(string[] args)
         {
             Chessboard cB = new Chessboard(8, 8);
-            Console.ReadLine();
+
+
+            Screen.ShowBoard(cB);
+
         }
     }
 }

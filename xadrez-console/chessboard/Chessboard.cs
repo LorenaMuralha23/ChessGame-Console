@@ -17,5 +17,11 @@ namespace chessboard
             this.columns = columns;
             pieces = new ChessPiece[lines, columns];
         }
+
+        public ChessPiece Piece(int line, int column)
+        {
+            return pieces[line, column];
+        }
+
     }
 }
