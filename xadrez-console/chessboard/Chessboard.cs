@@ -23,5 +23,11 @@ namespace chessboard
             return pieces[line, column];
         }
 
+        public void AddPiece(ChessPiece p, Position pos)
+        {
+            pieces[pos.line, pos.column] = p;
+            p.position = pos;
+        }
+
     }
 }
