@@ -18,5 +18,11 @@ namespace chessboard
             this.chessboard = chessboard;
             this.qntMovement = 0;
         }
+
+        public void AddMovement()
+        {
+            qntMovement++;
+        }
+
     }
 }

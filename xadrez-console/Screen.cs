@@ -38,7 +38,10 @@ namespace xadrez_console
         {
             if (piece.color == Color.Branca)
             {
+                ConsoleColor aux = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.Write(piece);
+                Console.ForegroundColor = aux;
             }
             else
             {
