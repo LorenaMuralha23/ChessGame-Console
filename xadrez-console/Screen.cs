@@ -11,7 +11,7 @@ namespace xadrez_console
 
             for (int i = 0; i < board.lines; i++)
             {
-
+                Console.Write(8 - i + " ");
                 for (int j = 0; j < board.columns; j++)
                 {
 
@@ -21,7 +21,8 @@ namespace xadrez_console
                     }
                     else
                     {
-                        Console.Write(board.Piece(i, j) + " ");
+                        PrintPiece(board.Piece(i, j));
+                        Console.Write(" ");
                     }
 
                 }
@@ -29,7 +30,23 @@ namespace xadrez_console
                 Console.WriteLine();
 
             }
+            Console.WriteLine("  a b c d e f g h");
 
+        }
+
+        public static void PrintPiece(ChessPiece piece)
+        {
+            if (piece.color == Color.Branca)
+            {
+                Console.Write(piece);
+            }
+            else
+            {
+                ConsoleColor aux = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write(piece);
+                Console.ForegroundColor = aux;
+            }
         }
 
     }
