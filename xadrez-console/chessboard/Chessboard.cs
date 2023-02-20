@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using exceptions;
 
 namespace chessboard
 {
@@ -23,10 +24,45 @@ namespace chessboard
             return pieces[line, column];
         }
 
+        public ChessPiece Piece(Position pos)
+        {
+            ValidPosition(pos);
+            return pieces[pos.line, pos.column];
+        }
+
         public void AddPiece(ChessPiece p, Position pos)
         {
-            pieces[pos.line, pos.column] = p;
+            if (ThereIsPiece(pos))
+            {
+                throw new ChessboardException("Position Error: There is already a piece on this position!");
+            }
+
+            pieces[pos.line, pos.column] = p; 
             p.position = pos;
+        }
+
+        public bool ThereIsPiece(Position pos)
+        {
+            ValidatePosition(pos);
+            return Piece(pos) != null;
+        }
+
+        public bool ValidPosition(Position pos)
+        {
+            if (pos.line < 0 || pos.line >= lines || pos.column < 0 || pos.column >= columns)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public void ValidatePosition(Position pos)
+        {
+            if (!ValidPosition(pos))
+            {
+                throw new ChessboardException("Invalid Position!");
+            }
         }
 
     }

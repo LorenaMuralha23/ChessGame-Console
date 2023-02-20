@@ -1,6 +1,7 @@
 ﻿using System;
 using chessboard;
 using chess;
+using exceptions;
 
 namespace xadrez_console
 {
@@ -8,14 +9,11 @@ namespace xadrez_console
     {
         static void Main(string[] args)
         {
-            Chessboard cB = new Chessboard(8, 8);
+            ChessPosition position = new ChessPosition('c', 7);
 
+            Console.WriteLine(position);
+            Console.WriteLine(position.ToPosition());
 
-            cB.AddPiece(new Tower(cB, Color.Preta), new Position(0, 0));
-            cB.AddPiece(new Tower(cB, Color.Preta), new Position(1, 3));
-            cB.AddPiece(new King(cB, Color.Preta), new Position(2, 4));
-
-            Screen.ShowBoard(cB);
 
         }
     }
