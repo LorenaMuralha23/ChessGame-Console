@@ -8,12 +8,14 @@ namespace chess
         public Chessboard board { get; private set; }
         private int shift;
         private Color currentPlayer;
+        public bool isFinished { get; private set; }
 
         public ChessGame()
         {
             board = new Chessboard(8, 8);
             shift = 1;
             currentPlayer = Color.Branca;
+            isFinished = false;
             AddPiece();
         }
 

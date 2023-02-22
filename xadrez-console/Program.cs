@@ -12,7 +12,23 @@ namespace xadrez_console
             try
             {
                 ChessGame game = new ChessGame();
-                Screen.ShowBoard(game.board);
+
+                while (!game.isFinished)
+                {
+                    Console.Clear();
+
+                    Screen.ShowBoard(game.board);
+                    Console.WriteLine();
+                    Console.Write("Digite a origem: ");
+                    Position origin = (Screen.ReadChessPosition()).ToPosition();
+
+                    Console.Write("Digite o destino: ");
+                    Position destiny = (Screen.ReadChessPosition()).ToPosition();
+
+                    game.ExecuteMove(origin, destiny);
+                }
+
+
             }
             catch (ChessboardException e)
             {
